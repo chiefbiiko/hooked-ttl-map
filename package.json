@@ -1,0 +1,30 @@
+{
+  "name": "hooked-cache-map",
+  "version": "0.0.0",
+  "description": "ttl map with a cleanup hook",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiefbiiko/hooked-cache-map.git"
+  },
+  "keywords": [
+    "cache",
+    "map",
+    "ttl",
+    "hook",
+    "cleanup",
+    "safe"
+  ],
+  "author": "Noah Anabiik Schwarz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chiefbiiko/hooked-cache-map/issues"
+  },
+  "homepage": "https://github.com/chiefbiiko/hooked-cache-map#readme",
+  "devDependencies": {
+    "tape": "^4.9.1"
+  }
+}
