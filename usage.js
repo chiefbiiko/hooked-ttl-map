@@ -1,5 +1,5 @@
-var HookedCacheMap = require('./index.js')
-var cache = new HookedCacheMap()
+var HookedTtlMap = require('./index.js')
+var cache = new HookedTtlMap()
 
 cache.set(27, 'fraud', 419) // time-to-live, key, value
 

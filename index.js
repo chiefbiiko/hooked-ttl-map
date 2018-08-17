@@ -1,4 +1,4 @@
-class HookedCacheMap extends Map {
+class HookedTtlMap extends Map {
 
   constructor (ttl, iterable, hook) {
     super()
@@ -24,4 +24,4 @@ class HookedCacheMap extends Map {
 
 }
 
-module.exports = HookedCacheMap
+module.exports = HookedTtlMap

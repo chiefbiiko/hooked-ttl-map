@@ -1,8 +1,8 @@
 const tape = require('tape')
-const HookedCacheMap = require('./index')
+const HookedTtlMap = require('./index')
 
 tape('self-clearing', t => {
-  const cache = new HookedCacheMap()
+  const cache = new HookedTtlMap()
   cache.set(1000, 'fraud', 419)
   t.is(cache.size, 1, 'kv set')
   setTimeout(() => {
@@ -12,7 +12,7 @@ tape('self-clearing', t => {
 })
 
 tape('feeding 2d arr at initialisation', t => {
-  const cache = new HookedCacheMap(419, [ [ 'fraud', 419 ], [ 'a', 1 ] ])
+  const cache = new HookedTtlMap(419, [ [ 'fraud', 419 ], [ 'a', 1 ] ])
   t.is(cache.size, 2, 'got two on it')
   t.is(cache.get('fraud'), 419, 'correct value')
   t.is(cache.get('a'), 1, 'correct value')
@@ -24,7 +24,7 @@ tape('feeding 2d arr at initialisation', t => {
 
 tape('willDelete cleanup hook', t => {
   t.plan(5)
-  const cache = new HookedCacheMap()
+  const cache = new HookedTtlMap()
   cache.set(436, 'fraud', 419, (key, value, doDelete) => {
     t.is(key, 'fraud', 'got the key passed to the willDelete hook')
     t.is(value, 419, 'got the value passed to the willDelete hook')

@@ -1,6 +1,6 @@
-# hooked-cache-map
+# hooked-ttl-map
 
-[![build status](http://img.shields.io/travis/chiefbiiko/hooked-cache-map.svg?style=flat)](http://travis-ci.org/chiefbiiko/hooked-cache-map) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chiefbiiko/hooked-cache-map?branch=master&svg=true)](https://ci.appveyor.com/project/chiefbiiko/hooked-cache-map)
+[![build status](http://img.shields.io/travis/chiefbiiko/hooked-ttl-map.svg?style=flat)](http://travis-ci.org/chiefbiiko/hooked-ttl-map) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/chiefbiiko/hooked-ttl-map?branch=master&svg=true)](https://ci.appveyor.com/project/chiefbiiko/hooked-ttl-map)
 
 ***
 
@@ -11,7 +11,7 @@ A `Map` subtype to be used as a temporary cache allowing for cleanup operations 
 ## Get it!
 
 ```
-npm install --save hooked-cache-map
+npm install --save hooked-ttl-map
 ```
 
 ***
@@ -19,8 +19,8 @@ npm install --save hooked-cache-map
 ## Usage
 
 ``` js
-var HookedCacheMap = require('hooked-cache-map')
-var cache = new HookedCacheMap()
+var HookedTtlMap = require('hooked-ttl-map')
+var cache = new HookedTtlMap()
 
 cache.set(27, 'fraud', 419) // time-to-live, key, value
 
@@ -35,9 +35,9 @@ setTimeout(function () {
 
 ## API
 
-### `var cache = new HookedCacheMap([ttl, iterable][, willDelete(key, value, doDelete)])`
+### `var cache = new HookedTtlMap([ttl, iterable][, willDelete(key, value, doDelete)])`
 
-Create a new `HookedCacheMap` instance. If `iterable` is provided (must be a 2d array) all passed items get added to the map during instantiation, and deleted after `ttl`. If `willDelete` is a function it will be called as a cleanup hook before items are deleted from the set but after `ttl` has exceeded. Make sure to call the `doDelete` callback at the end of the `willDelete` hook to actually perform the deletion.
+Create a new `HookedTtlMap` instance. If `iterable` is provided (must be a 2d array) all passed items get added to the map during instantiation, and deleted after `ttl`. If `willDelete` is a function it will be called as a cleanup hook before items are deleted from the set but after `ttl` has exceeded. Make sure to call the `doDelete` callback at the end of the `willDelete` hook to actually perform the deletion.
 
 ### `cache.set(ttl, key, value[, willDelete(key, value, doDelete)])`
 
